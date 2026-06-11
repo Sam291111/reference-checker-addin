@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Reference Checker icon">
+  <rect width="80" height="80" rx="14" fill="#1f6f78"/>
+  <path d="M21 18h30l8 8v36H21z" fill="#ffffff"/>
+  <path d="M50 18v10h9" fill="#d8eff2"/>
+  <path d="M29 35h22M29 43h22M29 51h13" stroke="#1f6f78" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="57" cy="57" r="13" fill="#f5a524"/>
+  <path d="M52 57l3 3 7-8" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "reference-checker-addin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pages": "node scripts/build-pages.mjs",
+    "install:local-manifest": "MANIFEST_PATH=manifest.xml node scripts/install-manifest.mjs",
+    "install:pages-manifest": "npm run build:pages && MANIFEST_PATH=dist/manifest.xml node scripts/install-manifest.mjs",
+    "start": "node server.mjs",
+    "test": "node --test tests/referenceMatcher.test.mjs"
+  }
+}
