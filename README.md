@@ -17,9 +17,9 @@ If a typed reference is not found in the lookup table, nothing is changed.
 The normal setup is to publish the static add-in files to GitHub Pages. Excel then loads the add-in from GitHub's HTTPS URL, so you do not need to start the local server each time.
 
 1. Create a GitHub repository for this folder.
-2. In GitHub, go to `Settings > Pages` and set the source to `GitHub Actions`.
-3. Push this folder to the repository's `main` branch.
-4. Wait for the `Deploy GitHub Pages` workflow to finish.
+2. Push this folder to the repository's `main` branch.
+3. Wait for the `Deploy GitHub Pages` workflow to finish. It publishes the built add-in to the `gh-pages` branch.
+4. In GitHub, go to `Settings > Pages`, set the source to `Deploy from a branch`, choose `gh-pages` and `/ (root)`, then save.
 5. Install the hosted manifest locally:
 
 ```sh
