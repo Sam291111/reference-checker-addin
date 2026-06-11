@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reference Checker Review</title>
+    <link rel="stylesheet" href="./taskpane.css">
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  </head>
+  <body>
+    <main class="app-shell review-shell">
+      <header class="app-header">
+        <div>
+          <h1>Review Suggestions</h1>
+          <p id="reviewStatus">Waiting for queue...</p>
+        </div>
+        <span id="reviewCount" class="badge badge-muted">0</span>
+      </header>
+
+      <section class="panel controls">
+        <label class="toggle-row">
+          <input id="reviewSoundEnabled" type="checkbox" checked>
+          <span>Play warning sound</span>
+        </label>
+        <button id="reviewTestSound" class="secondary full-width" type="button">Enable / Test Sound</button>
+      </section>
+
+      <section class="action-row">
+        <button id="reviewSelectAll" class="secondary" type="button">Select All</button>
+        <button id="reviewRemoveSelected" class="secondary" type="button">Remove Selected</button>
+        <button id="reviewApplySelected" type="button">Apply Selected</button>
+        <button id="reviewDeleteRows" class="left-column" type="button">Remove Rows</button>
+      </section>
+
+      <section id="reviewToast" class="toast" hidden>
+        <strong id="reviewToastTitle"></strong>
+        <span id="reviewToastMessage"></span>
+      </section>
+
+      <section class="panel queue-panel">
+        <div id="reviewQueueList" class="queue-list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/reviewWindow.js"></script>
+  </body>
+</html>

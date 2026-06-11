@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:type="TaskPaneApp">
+  <Id>0e9e2f0a-9d23-4f3a-8f09-0fd02e51b9e5</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>DAWN UoB</ProviderName>
+  <DefaultLocale>en-GB</DefaultLocale>
+  <DisplayName DefaultValue="Reference Checker"/>
+  <Description DefaultValue="Warns when Excel references already exist in an imported lookup table."/>
+  <IconUrl DefaultValue="https://Sam291111.github.io/reference-checker-addin/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://Sam291111.github.io/reference-checker-addin/assets/icon-80.png"/>
+  <SupportUrl DefaultValue="https://Sam291111.github.io/reference-checker-addin/README.md"/>
+  <AppDomains>
+    <AppDomain>https://Sam291111.github.io/reference-checker-addin</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="ExcelApi" MinVersion="1.7"/>
+      <Set Name="SharedRuntime" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://Sam291111.github.io/reference-checker-addin/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides
+    xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+    xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+    xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.1">
+        <bt:Set Name="AddinCommands"/>
+        <bt:Set Name="SharedRuntime" MinVersion="1.1"/>
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <Runtimes>
+          <Runtime resid="Taskpane.Url" lifetime="long"/>
+        </Runtimes>
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+          <FunctionFile resid="Taskpane.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="ReferenceChecker.Group">
+                <Label resid="ReferenceChecker.GroupLabel"/>
+                <Icon>
+                  <bt:Image size="16" resid="ReferenceChecker.Icon.16"/>
+                  <bt:Image size="32" resid="ReferenceChecker.Icon.32"/>
+                  <bt:Image size="80" resid="ReferenceChecker.Icon.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="ReferenceChecker.OpenPane">
+                  <Label resid="ReferenceChecker.OpenPane.Label"/>
+                  <Supertip>
+                    <Title resid="ReferenceChecker.OpenPane.Label"/>
+                    <Description resid="OpenPane.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="ReferenceChecker.Icon.16"/>
+                    <bt:Image size="32" resid="ReferenceChecker.Icon.32"/>
+                    <bt:Image size="80" resid="ReferenceChecker.Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ReferenceChecker.TaskPane</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="ReferenceChecker.OpenReview">
+                  <Label resid="OpenReview.Label"/>
+                  <Supertip>
+                    <Title resid="OpenReview.Label"/>
+                    <Description resid="OpenReview.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="ReferenceChecker.Icon.16"/>
+                    <bt:Image size="32" resid="ReferenceChecker.Icon.32"/>
+                    <bt:Image size="80" resid="ReferenceChecker.Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>openReviewWindow</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="ReferenceChecker.HidePane">
+                  <Label resid="HidePane.Label"/>
+                  <Supertip>
+                    <Title resid="HidePane.Label"/>
+                    <Description resid="HidePane.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="ReferenceChecker.Icon.16"/>
+                    <bt:Image size="32" resid="ReferenceChecker.Icon.32"/>
+                    <bt:Image size="80" resid="ReferenceChecker.Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>hideTaskPane</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="ReferenceChecker.Icon.16" DefaultValue="https://Sam291111.github.io/reference-checker-addin/assets/icon-16.png"/>
+        <bt:Image id="ReferenceChecker.Icon.32" DefaultValue="https://Sam291111.github.io/reference-checker-addin/assets/icon-32.png"/>
+        <bt:Image id="ReferenceChecker.Icon.80" DefaultValue="https://Sam291111.github.io/reference-checker-addin/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://Sam291111.github.io/reference-checker-addin/taskpane.html"/>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://Sam291111.github.io/reference-checker-addin/README.md"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="ReferenceChecker.GroupLabel" DefaultValue="References"/>
+        <bt:String id="ReferenceChecker.OpenPane.Label" DefaultValue="Open Checker"/>
+        <bt:String id="OpenReview.Label" DefaultValue="Review Window"/>
+        <bt:String id="HidePane.Label" DefaultValue="Hide Pane"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Reference Checker loaded"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="OpenPane.Tooltip" DefaultValue="Open the reference checker task pane."/>
+        <bt:String id="OpenReview.Tooltip" DefaultValue="Open the movable review window."/>
+        <bt:String id="HidePane.Tooltip" DefaultValue="Hide the task pane while the shared checker keeps running."/>
+        <bt:String id="GetStarted.Description" DefaultValue="Use the References group on the Home ribbon to open Reference Checker."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

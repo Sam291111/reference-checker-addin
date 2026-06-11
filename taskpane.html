@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reference Checker</title>
+    <link rel="stylesheet" href="./taskpane.css">
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <h1>Reference Checker</h1>
+          <p id="connectionStatus">Waiting for Excel...</p>
+        </div>
+        <span id="lookupBadge" class="badge badge-muted">No lookup</span>
+      </header>
+
+      <section class="panel">
+        <label class="file-label" for="lookupFile">Import lookup CSV</label>
+        <input id="lookupFile" type="file" accept=".csv,text/csv">
+        <p id="lookupSummary" class="hint">Import the lookup table for this work session.</p>
+      </section>
+
+      <section class="panel controls">
+        <label class="toggle-row">
+          <input id="alertsEnabled" type="checkbox" checked>
+          <span>Show toast alerts</span>
+        </label>
+        <label class="toggle-row">
+          <input id="soundEnabled" type="checkbox" checked>
+          <span>Play warning sound</span>
+        </label>
+        <button id="testSound" class="secondary full-width" type="button">Enable / Test Sound</button>
+      </section>
+
+      <section class="action-row">
+        <button id="scanSheet" type="button">Check Active Sheet</button>
+        <button id="openReviewWindow" type="button">Open Review Window</button>
+        <button id="selectAll" class="secondary" type="button">Select All</button>
+        <button id="removeSelected" class="secondary" type="button">Remove Selected</button>
+        <button id="applySelected" type="button">Apply Selected</button>
+        <button id="hidePane" class="secondary" type="button">Hide Pane</button>
+        <button id="deleteRows" type="button">Remove Rows</button>
+        <button id="clearQueue" class="secondary" type="button">Clear Queue</button>
+      </section>
+
+      <section id="toast" class="toast" hidden>
+        <strong id="toastTitle"></strong>
+        <span id="toastMessage"></span>
+      </section>
+
+      <section class="panel queue-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Review Queue</h2>
+            <p class="hint">Suggestions are not changed until you apply them.</p>
+          </div>
+          <span id="queueCount">0</span>
+        </div>
+        <div id="queueList" class="queue-list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/taskpane.js"></script>
+  </body>
+</html>

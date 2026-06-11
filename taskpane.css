@@ -1,0 +1,279 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f2;
+  --panel: #ffffff;
+  --ink: #16211f;
+  --muted: #5b6864;
+  --line: #d8ded9;
+  --accent: #1f6f78;
+  --accent-dark: #174f56;
+  --soft: #edf6f4;
+  --warn-bg: #fff4d9;
+  --warn-line: #d99522;
+  --warn-ink: #4d3405;
+  --danger: #a34125;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.app-header,
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 750;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+.app-header p,
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge,
+#queueCount {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-muted {
+  background: #eef2ef;
+  color: var(--muted);
+}
+
+.badge-ready {
+  background: #e3f3ea;
+  color: #1d6b3c;
+  border-color: #b9ddc6;
+}
+
+#queueCount {
+  min-width: 28px;
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  text-align: center;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.file-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+input[type="file"] {
+  width: 100%;
+  min-width: 0;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toggle-row {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.toggle-row input {
+  margin-top: 2px;
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.left-column {
+  grid-column: 1;
+}
+
+button {
+  min-height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button.secondary {
+  background: #ffffff;
+  color: var(--accent);
+}
+
+button.secondary:hover {
+  background: var(--soft);
+}
+
+button.full-width {
+  width: 100%;
+}
+
+.toast {
+  position: sticky;
+  top: 8px;
+  z-index: 3;
+  display: grid;
+  gap: 2px;
+  border: 1px solid var(--warn-line);
+  border-left-width: 5px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  padding: 10px 12px;
+  box-shadow: 0 8px 18px rgba(31, 44, 41, 0.16);
+}
+
+.toast[hidden] {
+  display: none;
+}
+
+.queue-panel {
+  padding-bottom: 8px;
+}
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 520px;
+  overflow: auto;
+  padding-top: 10px;
+}
+
+.queue-list:empty::before {
+  content: "No suggestions yet.";
+  color: var(--muted);
+}
+
+.suggestion {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffdf8;
+  padding: 10px;
+}
+
+.suggestion.ambiguous {
+  border-color: var(--warn-line);
+}
+
+.suggestion.work-doc {
+  border-left: 5px solid var(--warn-line);
+  background: #fff8e8;
+}
+
+.suggestion.applied {
+  opacity: 0.68;
+}
+
+.suggestion input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+.suggestion-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-weight: 750;
+}
+
+.suggestion-meta,
+.suggestion-paper,
+.suggestion-change {
+  display: grid;
+  gap: 2px;
+}
+
+.suggestion-meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.suggestion-paper {
+  margin-top: 8px;
+}
+
+.suggestion-change {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+}
+
+.field-label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.field-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.suggested-value {
+  color: var(--danger);
+  font-weight: 750;
+}
